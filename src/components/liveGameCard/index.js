@@ -26,7 +26,7 @@ export default function ({ values, id, handleBoxClick, selectedBoxes }) {
       <div className="relative inset-0 bg-opacity-100 backdrop-filter backdrop-blur-sm p-4">
         <div className="mb-4 flex items-center">
           <SportsIcon />
-          <span className="text-sm font-bold text-white">
+          <span className="text-sm font-bold text-white ml-2">
             England &gt; Premier League
           </span>
         </div>

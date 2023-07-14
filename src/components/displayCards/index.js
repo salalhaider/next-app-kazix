@@ -9,16 +9,6 @@ export default function ({
   initialAmount,
   setInitialAmount,
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
-  useEffect(() => {
-    console.log(selectedBoxes);
-    if (selectedBoxes != {} && !isOpen) {
-      toggle();
-    }
-  }, [selectedBoxes]);
   return (
     <div>
       <div className="flex p-4 justify-between">
@@ -73,62 +63,6 @@ export default function ({
               selectedBoxes={selectedBoxes}
             />
           ))}
-        </div>
-
-        <div
-          className={`${
-            isOpen ? "translate-x-[-10] ease-out" : "translate-x-full ease-in"
-          }  rounded-md w-60 ml-2 h-full left-1 top-0 overflow-auto transition-transform duration-200 transform dark:bg-[#0F2757] z-30`}
-        >
-          <div className="p-4 relative">
-            <button
-              onClick={toggle}
-              className="p-2 mb-5 bg-red-500 text-white rounded "
-            >
-              Close
-            </button>
-            <div className="flex  mb-8">
-              <div className=" bg-transparent ">
-                {/* <h2 className="font-bold mb-2">Selected Boxes</h2> */}
-                {Object.entries(selectedBoxes).map(([divId, value], index) => (
-                  <div key={index} className="mb-2 flex">
-                    <a
-                      href="#"
-                      class="block max-w-sm p-2 px-8 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-                    >
-                      <h5 class="mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
-                        {" "}
-                        Barracas - CA
-                      </h5>
-                      <p class="font-normal text-gray-700 dark:text-gray-400">
-                        {" "}
-                        Multiplier: x{value}
-                      </p>
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="absolute bottom-0 w-full flex justify-between items-center col-2 bg-gray-900">
-              <div className="flex justify-between m-2">
-                <input
-                  type="number"
-                  value={initialAmount}
-                  onChange={(e) => setInitialAmount(Number(e.target.value))}
-                  className="ml-2 border-2 text-black w-20 h-10 bg-gray-200 rounded-sm"
-                />
-              </div>
-              <div className="flex justify-between m-2">
-                <p class="font-normal text-gray-700 dark:text-gray-400 ">
-                  Payout
-                </p>
-                <h2 className="font-bold ml-auto mr-6 mt-4 justify-center ">
-                  {""}
-                  {totalMultiplier} $
-                </h2>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
